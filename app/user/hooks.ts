@@ -18,3 +18,10 @@ export function useUser(): UserContextType["state"]["user"] {
   } = React.useContext(UserContext);
   return user;
 }
+
+export function useRedeem(): UserContextType["actions"]["redeem"] {
+  const {
+    actions: { redeem },
+  } = React.useContext(UserContext);
+  return redeem;
+}
