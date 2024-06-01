@@ -33,17 +33,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="flex flex-row self-end items-center">
           <span className="py-2 px-4 rounded-full bg-black opacity-60 text-[10px] flex items-center  gap-1">
             You need {product.cost - points}
-            <Image src="/assets/coin.svg" alt="coin" width={15} height={15} />
+            <Image
+              src="/assets/coin.svg"
+              alt="coin"
+              width={0}
+              height={0}
+              style={{ width: "20px", height: "auto" }}
+            />
           </span>
         </div>
       )}
       <div className="flex-1">
         <Image
+          className="object-contain"
           src={product.img.hdUrl}
           width={200}
           height={200}
-          objectFit="contain"
           alt={product.name}
+          style={{ width: "auto", height: "auto" }}
+          priority
         />
       </div>
       <span className="w-full h-1 border-b border-black/10"></span>
@@ -61,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               width={30}
               height={30}
             />
-            <div className="flex flex-row gap-1">
+            <div className="flex flex-row gap-1 items-center">
               <span className="text-2xl font-bold">{product.cost}</span>
               <Image src="/assets/coin.svg" alt="coin" width={22} height={22} />
             </div>

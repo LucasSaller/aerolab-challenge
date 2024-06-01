@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["coding-challenge-api.aerolab.co"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "coding-challenge-api.aerolab.co",
+        pathname: "**",
+      },
+    ],
   },
 };
 

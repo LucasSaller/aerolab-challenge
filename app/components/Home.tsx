@@ -31,15 +31,14 @@ const HomeScreen = () => {
   }
   return (
     <div className="w-full">
-      <div className="w-full h-[350px] p-4 relative ">
+      <div className="w-full h-[350px] p-4 relative  ">
         <Image
-          className="z-1"
+          className="z-1 object-cover object-center "
           src="/assets/header-x2.png"
           alt="header"
           fill
           quality={100}
-          objectFit="cover"
-          objectPosition="center"
+          priority
         />
         <h2 className="text-white text-5xl z-10 absolute bottom-10 left-40 tracking-wide font-bold">
           Electronics
