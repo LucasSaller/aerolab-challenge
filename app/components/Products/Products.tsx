@@ -1,11 +1,12 @@
 "use client";
 import React, { useMemo, useState } from "react";
-
+import Image from "next/image";
 import { Product } from "../../types/product";
 import ProductCard from "./ProductCard";
 import { Filter } from "./types";
 import Count from "./Count";
 import Filters from "./Filters";
+import Pagination from "../Pagination";
 
 interface ProductsProp {
   products: Product[];
@@ -13,6 +14,9 @@ interface ProductsProp {
 
 const Products = ({ products }: ProductsProp) => {
   const [filter, setFilter] = useState<Filter>(Filter.MostRecent);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 16;
+
   const filteredProducts = useMemo(() => {
     switch (filter) {
       case Filter.HighestPrice: {
@@ -28,18 +32,50 @@ const Products = ({ products }: ProductsProp) => {
     }
   }, [filter, products]);
 
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    return filteredProducts.slice(startIndex, endIndex);
+  }, [currentPage, filteredProducts]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const currentCount =
+    currentPage * productsPerPage > filteredProducts.length
+      ? filteredProducts.length
+      : currentPage * productsPerPage;
+
   return (
     <div className="max-w-xs md:max-w-7xl mx-auto py-10 ">
       <div className="flex flex-row items-center gap-3 border-b-2 px-4 py-5 h-[80px] border-black/20">
-        <Count current={filteredProducts.length} total={products.length} />
+        <Count current={currentCount} total={products.length} />
+        <span className="h-3/4 border-r border-black/40"></span>
         <Filters active={filter} onChange={setFilter} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
       <div className="grid py-10 grid-cols-1 lg:grid-cols-4 gap-6">
-        {filteredProducts.map((product: Product) => (
+        {paginatedProducts.map((product: Product) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
-      <Count current={filteredProducts.length} total={products.length} />
+      <div className="flex flex-row items-center">
+        <div className="flex-1">
+          <Count current={currentCount} total={products.length} />
+        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };

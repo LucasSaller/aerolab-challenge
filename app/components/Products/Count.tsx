@@ -7,7 +7,7 @@ interface CountProps {
 
 const Count = ({ current, total }: CountProps) => {
   return (
-    <div className="border-r-2 border-black/20 px-5">
+    <div className=" px-5">
       <span className="text-black">
         {current} of {total} products
       </span>

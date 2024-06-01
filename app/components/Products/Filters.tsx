@@ -12,7 +12,7 @@ const FILTERS: Filter[] = [
 ];
 const Filters = ({ active, onChange }: FiltersProps) => {
   return (
-    <div className="flex flex-row gap-5 items-center">
+    <div className="flex flex-1 flex-row gap-5 items-center">
       <h2 className="text-gray-800/50">Sort by: </h2>
       <div className="flex flex-row gap-3">
         {FILTERS.map((filter, id) => (
