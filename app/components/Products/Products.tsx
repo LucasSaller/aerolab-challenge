@@ -51,7 +51,7 @@ const Products = ({ products }: ProductsProp) => {
 
   return (
     <div className="max-w-xs md:max-w-7xl mx-auto py-10 ">
-      <div className="flex flex-row items-center gap-3 border-b-2 px-4 py-5 h-[80px] border-black/20">
+      <div className="flex flex-col h-full lg:flex-row items-center gap-3 border-b-2 px-4 py-5 h-[80px] border-black/20">
         <Count current={currentCount} total={products.length} />
         <span className="h-3/4 border-r border-black/40"></span>
         <Filters active={filter} onChange={setFilter} />

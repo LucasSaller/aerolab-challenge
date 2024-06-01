@@ -19,7 +19,7 @@ const Pagination = ({
     onPageChange(Math.min(currentPage + 1, totalPages));
   };
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 self-end md:self-auto">
       {currentPage > 1 && (
         <button onClick={handlePreviousPage}>
           <Image

@@ -31,7 +31,7 @@ const HomeScreen = () => {
   }
   return (
     <div className="w-full mt-20">
-      <div className="w-full h-[350px] p-4 relative  ">
+      <div className="w-full md:h-[350px] p-4 relative h-[100px] ">
         <Image
           className="z-1 object-cover object-center "
           src="/assets/header-x2.png"
@@ -40,7 +40,7 @@ const HomeScreen = () => {
           quality={100}
           priority
         />
-        <h2 className="text-white text-5xl z-10 absolute bottom-10 left-40 tracking-wide font-bold">
+        <h2 className="text-white text-2xl lg:text-5xl z-10 absolute bottom-2 md:bottom-10 lg:left-40 tracking-wide font-bold">
           Electronics
         </h2>
       </div>
