@@ -30,4 +30,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-rotation {
+    animation: rotation 1s linear infinite;
+  }
 }
