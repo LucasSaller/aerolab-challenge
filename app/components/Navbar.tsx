@@ -6,7 +6,7 @@ const Navbar = () => {
   const [points, addPoints] = usePoints();
   const user = useUser();
   return (
-    <div className="flex justify-between w-full py-5 px-10 shadow-lg">
+    <div className="flex justify-between w-full py-5 px-10 shadow-lg fixed bg-white z-10">
       <div className="flex-1">
         <Image
           className=""

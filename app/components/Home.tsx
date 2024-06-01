@@ -30,7 +30,7 @@ const HomeScreen = () => {
     return <Loader />;
   }
   return (
-    <div className="w-full">
+    <div className="w-full mt-20">
       <div className="w-full h-[350px] p-4 relative  ">
         <Image
           className="z-1 object-cover object-center "
