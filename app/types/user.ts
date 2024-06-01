@@ -1,3 +1,4 @@
+import { Product } from "./product";
 export interface User {
   id: string;
   name: string;
@@ -11,5 +12,6 @@ export interface UserContextType {
   };
   actions: {
     addPoints: (amount: number) => Promise<void>;
+    redeem: (product: Product) => Promise<void>;
   };
 }
