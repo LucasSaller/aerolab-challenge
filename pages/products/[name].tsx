@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
-import { getProductByName, getProducts } from "@/app/api/products"; // Asegúrate de ajustar la ruta según tu estructura de proyecto
+import { getProductByName, getProducts } from "@/app/api/products.ts"; // Asegúrate de ajustar la ruta según tu estructura de proyecto
 import { Product } from "@/app/types/product";
 
 interface ProductPageProps {
@@ -36,7 +36,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const name = decodeURIComponent(params?.name as string);
   const product = await getProductByName(name);
-  console.log(product);
 
   if (!product) {
     return {
