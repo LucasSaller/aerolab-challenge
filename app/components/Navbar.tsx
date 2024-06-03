@@ -3,6 +3,10 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import { usePoints, useUser } from "../user/hooks";
 import { AnimatedTooltip } from "./ui/AnimatedTooltip";
+import Link from "next/link";
+import { FaHistory } from "react-icons/fa";
+import { LiaHistorySolid } from "react-icons/lia";
+
 const Navbar = () => {
   const [points, addPoints] = usePoints();
   const user = useUser();
@@ -27,6 +31,13 @@ const Navbar = () => {
       </div>
       <div className="flex flex-row items-center gap-4">
         <h2 className="text-black">{user.name} </h2>
+        <Link
+          className="text-black flex flex-row gap-2 items-center font-medium bg-gray-200 py-2 px-3 rounded-sm "
+          href="/history"
+        >
+          <LiaHistorySolid />
+          History
+        </Link>
 
         <AnimatedTooltip item={item} onClick={() => addPoints(1000)} />
         {/* <button

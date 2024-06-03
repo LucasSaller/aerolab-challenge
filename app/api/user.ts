@@ -14,3 +14,8 @@ export async function redeemProduct(product: Product) {
   const res = await instance.post("/redeem", { productId: product._id });
   return res.data;
 }
+
+export async function getRedeemHistory() {
+  const res = await instance.get("/user/history");
+  return res.data;
+}

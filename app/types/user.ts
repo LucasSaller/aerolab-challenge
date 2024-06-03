@@ -1,9 +1,10 @@
 import { Product } from "./product";
+import { RedeemHistoryItem } from "./product";
 export interface User {
   id: string;
   name: string;
   points: number;
-  redeemHistory: Product[];
+  redeemHistory: RedeemHistoryItem[];
   createDate: string;
 }
 export interface UserContextType {
