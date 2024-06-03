@@ -37,7 +37,7 @@ const History = ({ userPromise }: HistoryProps) => {
           History products
         </h1>
         <Link
-          className="flex flex-row items-center gap-2 h-10 text-black bg-gray-200 font-medium py-2 px-4 rounded-md"
+          className="flex flex-row items-center gap-2 h-10 text-black font-mono bg-gray-200 font-medium py-2 px-4 rounded-md"
           href="/"
         >
           <FaArrowAltCircleLeft />
