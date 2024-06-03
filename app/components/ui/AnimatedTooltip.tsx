@@ -75,7 +75,7 @@ export const AnimatedTooltip = ({
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="flex flex-row gap-2 bg-gray-300 py-2 px-3 rounded-2xl">
+      <div className="flex flex-row gap-2 bg-gray-300 py-2 px-3 rounded-full">
         <p className="text-black font-medium">{item.cost}</p>
         <Image
           onMouseMove={handleMouseMove}
