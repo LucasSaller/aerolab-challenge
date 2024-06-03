@@ -68,7 +68,7 @@ export const AnimatedTooltip = ({
           >
             <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
             <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-            <div className="font-bold text-white relative z-30 text-base">
+            <div className="font-bold text-white relative z-30 text-sm">
               {item.name}
             </div>
             <div className="text-white text-xs">{item.designation}</div>
@@ -76,7 +76,7 @@ export const AnimatedTooltip = ({
         )}
       </AnimatePresence>
       <div className="flex flex-row gap-2 bg-gray-300 py-2 px-3 rounded-full">
-        <p className="text-black font-medium">{item.cost}</p>
+        <p className="text-black font-medium text-sm">{item.cost}</p>
         <Image
           onMouseMove={handleMouseMove}
           height={22}

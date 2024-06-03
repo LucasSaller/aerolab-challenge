@@ -22,16 +22,16 @@ const Navbar = () => {
           className=""
           width={0}
           height={0}
-          style={{ width: "40px", height: "auto" }}
+          style={{ width: "35px", height: "auto" }}
           src="/assets/aerolab-logo.svg"
           alt="logo"
           priority
         />
       </div>
       <div className="flex flex-row items-center gap-4">
-        <h2 className="text-black">{user.name} </h2>
+        <h2 className="text-black text-sm">{user.name} </h2>
         <Link
-          className="text-black flex flex-row gap-2 items-center font-medium bg-gray-200 py-2 px-3 rounded-sm "
+          className="text-black text-sm flex flex-row gap-2 items-center font-medium bg-gray-200 py-2 px-3 rounded-sm "
           href="/history"
         >
           <LiaHistorySolid />
