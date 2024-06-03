@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Products from "@/app/components/Products/Products";
 import { Product } from "@/app/types/product";
-import { getProduts } from "../api/products";
+import { getProducts } from "../api/products";
 
 import Image from "next/image";
 import Loader from "./Loader";
@@ -15,7 +15,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const products = await getProduts();
+        const products = await getProducts();
         setProducts(products);
         setStatus("resolved");
       } catch (error) {

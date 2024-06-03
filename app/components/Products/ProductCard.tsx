@@ -3,6 +3,7 @@ import React from "react";
 import { Product } from "../../types/product";
 import Image from "next/image";
 import { usePoints, useRedeem } from "@/app/user/hooks";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -59,8 +60,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h2 className="text-black/65 text-sm">{product.category}</h2>
         <h2 className="text-black">{product.name}</h2>
       </div>
+      <Link href={`/products/${encodeURIComponent(product.name)}`}>
+        <button className="text-white bg-black py-2 px-4 rounded-full">
+          Ver producto
+        </button>
+      </Link>
       {canBuy && (
-        <div className="absolute top-0 left-0 bg-sky-400 opacity-0 w-full h-full transition-all ease-in group-hover:opacity-95">
+        <div className="absolute top-0 left-0 bg-sky-400 opacity-0 w-full h-3/4 transition-all ease-in group-hover:opacity-95">
           <div className="flex flex-col gap-2 h-full justify-center items-center">
             <Image
               className="absolute top-3 right-2 cursor-pointer"
