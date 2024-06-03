@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         />
       ) : (
         <div className="flex flex-row self-end items-center">
-          <span className="py-2 px-4 rounded-full bg-black opacity-60 text-[10px] flex items-center  gap-1">
+          <span className="py-2 px-4 rounded-full text-white bg-black opacity-60 text-[10px] flex items-center  gap-1">
             You need {product.cost - points}
             <Image
               src="/assets/coin.svg"

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { usePoints, useUser } from "../user/hooks";
 import { AnimatedTooltip } from "./ui/AnimatedTooltip";
 import Link from "next/link";
-import { FaHistory } from "react-icons/fa";
 import { LiaHistorySolid } from "react-icons/lia";
 
 const Navbar = () => {
@@ -40,13 +39,6 @@ const Navbar = () => {
         </Link>
 
         <AnimatedTooltip item={item} onClick={() => addPoints(1000)} />
-        {/* <button
-            onClick={() => addPoints(1000)}
-            className="text-md text-black flex flex-row items-center gap-2"
-          >
-            {points}
-            <Image src="/assets/coin.svg" alt="coin" width={20} height={20} />
-          </button> */}
       </div>
     </div>
   );
