@@ -1,27 +1,27 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
-import { getProductByName, getProducts } from "@/app/api/products.ts"; // Asegúrate de ajustar la ruta según tu estructura de proyecto
+import { getProductByName, getProducts } from "@/app/api/products"; // Asegúrate de ajustar la ruta según tu estructura de proyecto
 import { Product } from "@/app/types/product";
+import ProductPage from "../../app/components/Products/ProductPage";
+import Loader from "@/app/components/Loader";
 
-interface ProductPageProps {
+interface ProductProps {
   product: Product;
+  relatedProducts: Product[];
 }
-const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+const Produc: React.FC<ProductProps> = ({ product, relatedProducts }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex min-h-screen bg-white">
+        <Loader />
+      </div>
+    );
   }
 
-  return (
-    <div>
-      <h1>{product.name}</h1>
-      <p>Price: ${product.cost}</p>
-      <img src={product.img.url} alt={product.name} />
-      {/* Añade más detalles del producto aquí */}
-    </div>
-  );
+  return <ProductPage product={product} relatedProducts={relatedProducts} />;
 };
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await getProducts();
@@ -36,14 +36,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const name = decodeURIComponent(params?.name as string);
   const product = await getProductByName(name);
-
+  const allProducts = await getProducts();
   if (!product) {
     return {
       notFound: true,
     };
   }
-
-  return { props: { product } };
+  const relatedProducts = allProducts.filter(
+    (p: Product) => p.category === product.category && p.name !== product.name
+  );
+  return { props: { product, relatedProducts } };
 };
 
-export default ProductPage;
+export default Produc;
