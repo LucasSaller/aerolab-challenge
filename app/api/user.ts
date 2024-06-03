@@ -12,6 +12,5 @@ export async function addPoints(amount: number) {
 
 export async function redeemProduct(product: Product) {
   const res = await instance.post("/redeem", { productId: product._id });
-  console.log(res);
   return res.data;
 }
