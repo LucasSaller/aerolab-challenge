@@ -52,7 +52,7 @@ const Products = ({ products }: ProductsProp) => {
 
   return (
     <div className="max-w-xs md:max-w-7xl mx-auto py-10 ">
-      <div className="flex flex-col lg:flex-row items-center gap-3 border-b-2 px-4 py-5 h-[80px] border-black/20">
+      <div className="flex flex-col lg:flex-row items-center gap-3 border-b-2 px-4 py-5 border-black/20">
         <Count current={currentCount} total={products.length} />
         <span className="h-3/4 border-r border-black/40"></span>
         <Filters active={filter} onChange={setFilter} />
@@ -62,8 +62,8 @@ const Products = ({ products }: ProductsProp) => {
           onPageChange={handlePageChange}
         />
       </div>
-      <div className="grid py-10 grid-cols-1 lg:grid-cols-4 gap-6">
-        {paginatedProducts.map((product: Product) => (
+      <div className="grid py-10 grid-cols-1 lg:grid-cols-4 gap-6 px-6">
+        {paginatedProducts.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
         {/* <HoverEffect items={paginatedProducts} /> */}

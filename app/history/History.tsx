@@ -1,13 +1,15 @@
-import React from "react";
-import "@/app/globals.css";
-import { useUser } from "@/app/user/hooks";
 import { RedeemHistoryItem } from "@/app/types/product";
 import Link from "next/link";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import Image from "next/image";
+import { User } from "../types/user";
+import React from "react";
 
-const History = () => {
-  const user = useUser();
+interface HistoryProps {
+  userPromise: Promise<User>;
+}
+const History = ({ userPromise }: HistoryProps) => {
+  const user = React.use(userPromise);
   if (!user || !user.redeemHistory || user.redeemHistory.length === 0) {
     return (
       <div className="flex min-h-screen flex-col p-10 bg-gray-100">

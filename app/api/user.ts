@@ -1,5 +1,6 @@
 import { Product } from "../types/product";
 import instance from "./axios";
+
 export async function getUser() {
   const res = await instance.get("/user/me");
   return res.data;

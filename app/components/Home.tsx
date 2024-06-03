@@ -1,36 +1,13 @@
-"use client";
-import React, { useState, useEffect } from "react";
 import Products from "@/app/components/Products/Products";
-import { Product } from "@/app/types/product";
 import { getProducts } from "../api/products";
 
 import Image from "next/image";
-import Loader from "./Loader";
 
-const HomeScreen = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [status, setStatus] = useState<"pending" | "resolved" | "rejected">(
-    "pending"
-  );
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const products = await getProducts();
-        setProducts(products);
-        setStatus("resolved");
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        setStatus("rejected");
-      }
-    };
+const HomeScreen = async () => {
+  const products = await getProducts();
 
-    fetchProducts();
-  }, []);
-  if (status == "pending") {
-    return <Loader />;
-  }
   return (
-    <div className="w-full mt-20">
+    <div className="w-full">
       <div className="w-full md:h-[350px] p-4 relative h-[100px] ">
         <Image
           className="z-1 object-cover object-center "
@@ -44,7 +21,7 @@ const HomeScreen = () => {
           Electronics
         </h2>
       </div>
-      {status === "resolved" && <Products products={products} />}
+      <Products products={products} />
     </div>
   );
 };

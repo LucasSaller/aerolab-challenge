@@ -16,7 +16,7 @@ const Navbar = () => {
     image: "/assets/coin.svg",
   };
   return (
-    <div className="flex justify-between w-full py-5 px-10 shadow-lg fixed bg-white z-10">
+    <div className="flex justify-between w-full py-5 px-10 shadow-lg fixed top-0 left-0 bg-white z-10">
       <div className="flex-1">
         <Image
           className=""
