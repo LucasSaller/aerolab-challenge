@@ -23,7 +23,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   const handleRedeem = async (product: Product) => {
     if (!user) return;
-    const res = await redeemProduct(product);
+    await redeemProduct(product);
     setUser({
       ...user,
       points: user.points - product.cost,
@@ -36,7 +36,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   const handleAddPoints = async (amount: number) => {
     if (!user) return;
-    const res = await addPoints(amount);
+    await addPoints(amount);
     setUser({
       ...user,
       points: user.points + amount,
